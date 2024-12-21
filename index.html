@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map of Tirupati</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Map of Tirupati</h1>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Coordinates for Tirupati
+    const tirupatiCoordinates = [13.6288, 79.4192];
+
+    // Initialize the map and set the view to Tirupati
+    const map = L.map('map').setView(tirupatiCoordinates, 13); // Latitude, Longitude, Zoom Level
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add a marker at Tirupati with a popup
+    const marker = L.marker(tirupatiCoordinates).addTo(map);
+    marker.bindPopup("<b>Tirupati</b><br>Famous for Lord Venkateswara Temple.").openPopup();
+
+    // Add a circle to represent the surrounding area
+    const circle = L.circle(tirupatiCoordinates, {
+      color: 'blue',
+      fillColor: '#30a1f2',
+      fillOpacity: 0.3,
+      radius: 2000 // Radius in meters
+    }).addTo(map);
+    circle.bindPopup("Approx. 2km around Tirupati");
+
+    // Optional: Add a polygon to highlight an area (e.g., a triangular region around Tirupati)
+    const polygon = L.polygon([
+      [13.634, 79.41],
+      [13.624, 79.43],
+      [13.62, 79.41]
+    ], {
+      color: 'green',
+      fillOpacity: 0.4
+    }).addTo(map);
+    polygon.bindPopup("Highlighted area near Tirupati.");
+  </script>
+</body>
+</html>
