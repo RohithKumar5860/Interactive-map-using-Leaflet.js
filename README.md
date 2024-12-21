@@ -9,5 +9,5 @@
 
 The code includes a responsive design for the map container, ensuring it occupies the full screen. Users can expand the functionality further by integrating external GeoJSON data, using custom icons for markers, or choosing from other tile providers like Mapbox. This example highlights the simplicity and flexibility of Leaflet.js for building interactive web-based maps.
 </P>
-<img src = ""> 
-<img src = ""> 
+<img src = "output.png"> 
+<img src = "output2.png"> 
